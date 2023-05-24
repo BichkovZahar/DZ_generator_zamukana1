@@ -1,21 +1,13 @@
-class PrimeGenerator:
-    def __init__(self):
-        self.index = 2
-    def is_prime(self, number):
-        if number < 2:
-            return False
-        for i in range(2, (number // 2) + 1):
-            if number % i == 0:
-                return False
-        return True
-    def generate(self):
-        new_index = self.index
-        while True:
-            if self.is_prime(new_index):
-                self.index = new_index + 1
-                return new_index
-            new_index += 1
-
-generator = PrimeGenerator()
-for i in range(5):
-    print(generator.generate())
+import random
+class PasswordGenerator:
+    def __init__(self , length , characters):
+        self.length = length
+        self.characters = characters
+    def generate_password(self):
+        password = ''
+        for i in range(self.length):
+            password += random.choice(self.characters)
+        return password
+rezult = PasswordGenerator(8 , 'vbe%^#@(HBFE4536')
+for i in range(3):
+    print(f"Пароль: {rezult.generate_password()}")
